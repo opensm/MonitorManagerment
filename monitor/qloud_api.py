@@ -8,8 +8,8 @@ from qcloudsms_py.httpclient import HTTPError
 class VoiceSend:
 
     def __init__(self):
-        self.__id = 1400045941
-        self.__key = "e6f10aef4fc6427a628809e342f1c773"
+        self.__id = 
+        self.__key = ""
         self.vp = SmsVoicePromptSender(self.__id, self.__key)
 
     def send_voice(self, tellist, massage):
