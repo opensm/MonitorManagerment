@@ -1,0 +1,295 @@
+{% extends "sider.html" %}
+{% load staticfiles %}
+{% block head %}
+    {% block title %}{{ view_message }} - 哆可梦运维管理系统{% endblock %}
+{% endblock %}
+{% block mainbody %}
+    <!-- begin::Body -->
+    <div class="m-grid__item m-grid__item--fluid m-wrapper">
+
+        <!-- BEGIN: Subheader -->
+        <div class="m-subheader ">
+            <div class="d-flex align-items-center">
+                <div class="mr-auto">
+                    <h3 class="m-subheader__title ">{{ view_message }}</h3>
+                </div>
+            </div>
+        </div>
+        <!-- END: Subheader -->
+        <div class="m-content">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4">
+                    <div class="m-portlet m-portlet--full-height  ">
+                        <div class="m-portlet__body">
+                            <div class="m-card-profile">
+                                <div class="m-card-profile__title m--hide">
+                                    Your Profile
+                                </div>
+                                <div class="m-card-profile__pic">
+                                    <div class="m-card-profile__pic-wrapper">
+                                        <img src="{{ user.img.url }}" alt=""/>
+                                    </div>
+                                </div>
+                                <div class="m-card-profile__details">
+                                    <span class="m-card-profile__name">{{ user.first_name }}{{ user.last_name }}</span>
+                                    <a href="" class="m-card-profile__email m-link">{{ user.username }}</a>
+                                </div>
+                            </div>
+                            <ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
+                                <li class="m-nav__separator m-nav__separator--fit"></li>
+                                <li class="m-nav__section m--hide">
+                                    <span class="m-nav__section-text">部分信息</span>
+                                </li>
+                                <li class="m-nav__item">
+                                    <a class="m-nav__link">
+                                        <i class="m-nav__link-icon flaticon-profile-1"></i>
+                                        <span class="m-nav__link-title">
+                                            <span class="m-nav__link-wrap">
+                                                <span class="m-nav__link-text">是否管理员</span>
+                                                <span class="m-nav__link-badge">
+                                                    <span class="m-badge m-badge--success">{{ user.is_superuser }}</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="m-nav__item">
+                                    <a class="m-nav__link">
+                                        <i class="m-nav__link-icon flaticon-profile-1"></i>
+                                        <span class="m-nav__link-title">
+                                            <span class="m-nav__link-wrap">
+                                                <span class="m-nav__link-text">上次登录</span>
+                                                <span class="m-nav__link-badge">
+                                                    <span class="m-badge m-badge--success">{{ user.last_login }}</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="m-nav__item">
+                                    <a class="m-nav__link">
+                                        <i class="m-nav__link-icon flaticon-profile-1"></i>
+                                        <span class="m-nav__link-title">
+                                            <span class="m-nav__link-wrap">
+                                                <span class="m-nav__link-text">创建日期</span>
+                                                <span class="m-nav__link-badge">
+                                                    <span class="m-badge m-badge--success">{{ user.create_date }}</span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="m-portlet__body-separator"></div>
+
+                            <div class="m-widget1 m-widget1--paddingless">
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">Member Profit</h3>
+                                            <span class="m-widget1__desc">Awerage Weekly Profit</span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-brand">+$17,800</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">Orders</h3>
+                                            <span class="m-widget1__desc">Weekly Customer Orders</span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-danger">+1,800</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-widget1__item">
+                                    <div class="row m-row--no-padding align-items-center">
+                                        <div class="col">
+                                            <h3 class="m-widget1__title">Issue Reports</h3>
+                                            <span class="m-widget1__desc">System bugs and issues</span>
+                                        </div>
+                                        <div class="col m--align-right">
+                                            <span class="m-widget1__number m--font-success">-27,49%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-8">
+                    <div class="m-portlet m-portlet--full-height m-portlet--tabs  ">
+                        <div class="m-portlet__head">
+                            <div class="m-portlet__head-tools">
+                                <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary"
+                                    role="tablist">
+                                    <li class="nav-item m-tabs__item">
+                                        <a class="nav-link m-tabs__link active" data-toggle="tab"
+                                           href="#m_user_profile_tab_1" role="tab">
+                                            <i class="flaticon-share m--hide"></i>
+                                            {{ view_message }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="m_user_profile_tab_1">
+                                <form class="m-form m-form--fit m-form--label-align-right" method="post" action=" "
+                                      enctype="multipart/form-data">
+                                    <div class="m-portlet__body">
+                                        {% if  user_form.error %}
+                                            <div class="form-group m-form__group m--margin-top-10">
+                                                <div class="alert m-alert m-alert--default" role="alert">
+                                                    {{ user_form.error }}
+                                                </div>
+                                            </div>
+                                        {% elif  error %}
+                                            <div class="form-group m-form__group m--margin-top-10">
+                                                <div class="alert m-alert m-alert--default" role="alert">
+                                                    {{ error }}
+                                                </div>
+                                            </div>
+                                        {% endif %}
+
+                                        <div class="form-group m-form__group row">
+                                            <div class="col-10 ml-auto">
+                                                <h3 class="m-form__section">1. 个人信息</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group m-form__group row">
+                                            <label for="example-text-input"
+                                                   class="col-2 col-form-label">{{ user_form.first_name.label_tag }}</label>
+                                            <div class="col-3">
+                                                {{ user_form.first_name }}
+                                            </div>
+                                            <label for="example-text-input"
+                                                   class="col-2 col-form-label">{{ user_form.last_name.label_tag }}</label>
+                                            <div class="col-3">
+                                                {{ user_form.last_name }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
+                                            <label for="example-text-input"
+                                                   class="col-2 col-form-label">{{ user_form.username.label_tag }}
+                                            </label>
+                                            <div class="col-7">
+                                                {{ user_form.username }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
+                                            <label for="example-text-input"
+                                                   class="col-2 col-form-label">{{ user_form.mobile.label_tag }}</label>
+                                            <div class="col-7">
+                                                {{ user_form.mobile }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
+                                            <label for="example-text-input"
+                                                   class="col-2 col-form-label">{{ user_form.img.label_tag }}
+                                            </label>
+                                            <div class="col-7">
+                                                {{ user_form.img }}
+                                            </div>
+                                        </div>
+
+                                        <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
+
+                                        <div class="form-group m-form__group row">
+                                            <div class="col-10 ml-auto">
+                                                <h3 class="m-form__section">2. 角色、职位</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group m-form__group row">
+                                            <label for="example-text-input"
+                                                   class="col-2 col-form-label">{{ user_form.department.label_tag }}</label>
+                                            <div class="col-7">
+                                                {{ user_form.department }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
+                                            <label for="example-text-input"
+                                                   class="col-2 col-form-label">{{ user_form.roles.label_tag }}</label>
+                                            <div class="col-7 m-checkbox-inline">
+                                                {% for role in user_form.roles %}
+                                                    <label class="m-checkbox">
+                                                        <input class="form-control m-input" type="checkbox"
+                                                                id="{{ role.data.attrs.id }}" name="{{ role.data.name }}"
+                                                               type="{{ role.data.type }}" value="{{ role.data.value }}"
+                                                               {% if role.data.selected == True %}checked {% endif %}
+                                                        />{{ role.data.label }}
+                                                        <span></span>
+                                                    </label>
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+
+                                        <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
+
+                                        <div class="form-group m-form__group row">
+                                            <div class="col-10 ml-auto">
+                                                <h3 class="m-form__section">3. 状态</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group m-form__group row">
+                                            <label for="example-text-input"
+                                                   class="col-2 col-form-label">{{ user_form.is_active.label_tag }}</label>
+                                            <div class="col-7">
+                                                {{ user_form.is_active }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group m-form__group row">
+                                            <label for="example-text-input"
+                                                   class="col-2 col-form-label">{{ user_form.is_staff.label_tag }}</label>
+                                            <div class="col-7">
+                                                {{ user_form.is_staff }}
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="m-portlet__foot m-portlet__foot--fit">
+                                        <div class="m-form__actions">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                </div>
+                                                <div class="col-7">
+                                                    <button type="submit"
+                                                            class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                                                        保存
+                                                    </button>&nbsp;&nbsp;
+                                                    <button type="reset"
+                                                            class="btn btn-secondary m-btn m-btn--air m-btn--custom">
+                                                        取消
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane " id="m_user_profile_tab_2">
+
+                            </div>
+                            <div class="tab-pane " id="m_user_profile_tab_3">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end:: Body -->
+{% endblock %}
+{% block script %}
+    <script src="{% static 'js/dropzone.js' %}" type="text/javascript"></script>
+{% endblock %}
